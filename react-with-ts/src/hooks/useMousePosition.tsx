@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-const MouseTracker: React.FC = () => {
+const useMousePosition = () => {
   const [positions, setPositions] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    console.log("add effect");
     const updateMousePosition = (event: MouseEvent) => {
-      console.log("我执行了");
       setPositions({ x: event.pageX, y: event.pageY });
     };
-
-    document.addEventListener("click", updateMousePosition);
+    document.addEventListener("mousemove", updateMousePosition);
 
     return function clean() {
-      document.removeEventListener("click", updateMousePosition);
+      console.log("clean effect");
+      document.removeEventListener("mousemove", updateMousePosition);
     };
   }, []);
-
-  return (
-    <p>
-      x: {positions.x}， y: {positions.y}
-    </p>
-  );
+  return positions;
 };
 
-export default MouseTracker;
+export default useMousePosition;
