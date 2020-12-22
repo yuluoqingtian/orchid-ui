@@ -1,0 +1,38 @@
+@mixin button-size($padding-x, $padding-y, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  // 字体颜色
+  $color,
+  // hover的背景颜色，是比本身的北京颜色浅7.5%
+  $hover-background: lighten($background, 7.5%),
+  $hover-border: lighten($border, 7.5%),
+  // hover的字体颜色
+  $hover-color: $color
+) {
+  color: $color;
+  border-color: $border;
+  background: $background;
+  &:hover {
+    color: $hover-color;
+    border-color: $hover-border;
+    background: $hover-background;
+  }
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    border-color: $hover-border;
+    background: $hover-background;
+  }
+  &:disabled,
+  &.disabled {
+    color: $color;
+    border-color: $border;
+    background: $background;
+  }
+}

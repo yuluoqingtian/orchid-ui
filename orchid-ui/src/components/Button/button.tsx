@@ -1,16 +1,17 @@
 import React from "react"
 import classNames from "classnames"
+import { type } from "os"
 
 export enum ButtonSize {
   Large = "lg",
-  Small = "sm",
+  Small = "sm"
 }
 
 export enum ButtonType {
   Primary = "primary",
   Default = "default",
   Danger = "danger",
-  Link = "link",
+  Link = "link"
 }
 
 interface BaseButtonProps {
@@ -22,26 +23,41 @@ interface BaseButtonProps {
   href?: string
 }
 
-const Button: React.FC<BaseButtonProps> = (props) => {
-  const { className, disabled, size, btnType, children, href } = props
+type NativeButtonProps = BaseButtonProps &
+  React.ButtonHTMLAttributes<HTMLElement>
+type AnchorNativeProps = BaseButtonProps &
+  React.AnchorHTMLAttributes<HTMLElement>
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorNativeProps>
+
+const Button: React.FC<ButtonProps> = (props) => {
+  const {
+    className,
+    disabled,
+    size,
+    btnType,
+    children,
+    href,
+    ...restProps
+  } = props
 
   // btn btn-lg btn-primary
-  const classes = classNames("btn", {
+  const classes = classNames("btn", className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.Link && disabled,
+    disabled: btnType === ButtonType.Link && disabled
   })
 
   // 只有link返回a标签，其余都返回button
   if (btnType === ButtonType.Link) {
     return (
-      <a className={classes} href={href}>
+      <a className={classes} href={href} {...restProps}>
         {children}
       </a>
     )
   } else {
     return (
-      <button className={classes} disabled={disabled}>
+      <button className={classes} disabled={disabled} {...restProps}>
         {children}
       </button>
     )
@@ -50,9 +66,8 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default,
+  btnType: ButtonType.Default
   // eslint-disable-next-line no-script-url
-  href: "javascript:;",
 }
 
 export default Button

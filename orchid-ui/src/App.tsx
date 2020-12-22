@@ -5,13 +5,31 @@ function App() {
   return (
     <div className="App">
       <h2>Button</h2>
-      <Button disabled>hello</Button>
-      {renderBlank(8)}
+      <Button>hello</Button>
+      {renderBlank(4)}
+      <Button disabled>Disabled Button</Button>
+      {renderBlank(4)}
       <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
-        hello
+        Large Primary
       </Button>
+      {renderBlank(4)}
+      <Button
+        size={ButtonSize.Small}
+        btnType={ButtonType.Danger}
+      >
+        Small Danger
+      </Button>
+      {renderBlank(4)}
+      <Button
+        btnType={ButtonType.Link}
+        target="_blnak"
+        href="https://baidu.com"
+      >
+        Baidu Link
+      </Button>
+      {renderBlank(4)}
       <Button btnType={ButtonType.Link} disabled>
-        link
+        Disabled Link
       </Button>
     </div>
   )

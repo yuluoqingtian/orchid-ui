@@ -3,15 +3,22 @@
   position: relative;
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
-  padding: $btn-padding-y $btn-padding-x;
   color: $body-color;
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
   background-image: none;
   border: $btn-border-width solid $btn-border-color;
-  font-size: $btn-font-size;
-  border-radius: $border-radius;
+  // 这里使用mixin
+  @include button-size(
+    $btn-padding-x,
+    $btn-padding-y,
+    $btn-font-size,
+    $border-radius
+  );
+  // padding: $btn-padding-y $btn-padding-x;
+  // font-size: $btn-font-size;
+  // border-radius: $border-radius;
   box-shadow: $box-shadow;
   transition: $btn-transition;
   cursor: pointer;
@@ -19,9 +26,80 @@
   &[disabled] {
     opacity: $btn-disabled-opacity;
     cursor: not-allowed;
-    box-shadow: none; 
+    box-shadow: none;
     > * {
       pointer-events: none;
     }
+  }
+}
+
+.btn-lg {
+  @include button-size(
+    $btn-padding-x-lg,
+    $btn-padding-y-lg,
+    $btn-font-size-lg,
+    $border-radius-lg
+  );
+}
+
+.btn-sm {
+  @include button-size(
+    $btn-padding-x-sm,
+    $btn-padding-y-sm,
+    $btn-font-size-sm,
+    $border-radius-sm
+  );
+}
+
+.btn-primary {
+  @include button-style($primary, $primary, $white);
+}
+
+.btn-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+.btn-default {
+  @include button-style(
+    $white,
+    $gray-400,
+    $body-color,
+    $white,
+    $primary,
+    $primary
+  );
+}
+
+.btn-link {
+  text-decoration: $link-decoration;
+  color: $link-color;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+  }
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    text-decoration: $link-decoration;
+  }
+  &:not([href]) {
+    text-decoration: $link-decoration;
+    color: $link-color;
+  }
+  &:not([href]):hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:not([href]):disabled,
+  &:not([href]).disabled {
+    color: $btn-link-disabled-color;
+    text-decoration: $link-decoration;
   }
 }
