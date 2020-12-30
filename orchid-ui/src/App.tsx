@@ -9,6 +9,8 @@ function App() {
       {renderBlank(4)}
       <Button disabled>Disabled Button</Button>
       {renderBlank(4)}
+      <Button disabled  btnType={ButtonType.Danger} size={ButtonSize.Large}>Large Danger Disabled Button</Button>
+      {renderBlank(4)}
       <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
         Large Primary
       </Button>
