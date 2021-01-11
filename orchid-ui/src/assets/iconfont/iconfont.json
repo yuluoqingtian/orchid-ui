@@ -1,0 +1,44 @@
+{
+  "id": "2320348",
+  "name": "orchid-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "组件库",
+  "glyphs": [
+    {
+      "icon_id": "19060506",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e85c",
+      "unicode_decimal": 59484
+    },
+    {
+      "icon_id": "19060523",
+      "name": "chevron-down",
+      "font_class": "chevron-down",
+      "unicode": "e85e",
+      "unicode_decimal": 59486
+    },
+    {
+      "icon_id": "19060591",
+      "name": "heart",
+      "font_class": "heart",
+      "unicode": "e865",
+      "unicode_decimal": 59493
+    },
+    {
+      "icon_id": "19060601",
+      "name": "info",
+      "font_class": "info",
+      "unicode": "e866",
+      "unicode_decimal": 59494
+    },
+    {
+      "icon_id": "19060750",
+      "name": "x",
+      "font_class": "x",
+      "unicode": "e878",
+      "unicode_decimal": 59512
+    }
+  ]
+}

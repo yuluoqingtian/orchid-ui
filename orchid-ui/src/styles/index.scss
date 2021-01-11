@@ -1,3 +1,5 @@
+@import "../assets/iconfont/iconfont.css";
+
 //config
 @import "variables";
 
@@ -8,4 +10,7 @@
 @import "mixins";
 
 //button
-@import "../components/Button/styles"
+@import "../components/Button/styles";
+
+//alert
+@import "../components//Alert/styles";

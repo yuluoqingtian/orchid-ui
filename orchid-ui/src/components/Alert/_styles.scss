@@ -1,0 +1,70 @@
+.orch-alert {
+  padding: 18px 25px;
+  margin: 0;
+  border: 1px solid;
+  display: flex;
+  border-radius: $border-radius;
+  color: #fff;
+  line-height: $line-height-sm;
+  height: auto;
+  transition: height 2s;
+
+  .orch-alert-content {
+    width: 100%;
+    .orch-alert-message {
+      font-weight: bold;
+      letter-spacing: 0.05rem;
+      font-size: 1.15rem;
+    }
+    .orch-alert-description {
+      margin-top: 10px;
+    }
+  }
+
+  > i {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  // 隐藏
+  &-hide {
+    transform: scaleY(0);
+    color: transparent;
+    animation: alert_hide 0.15s;
+  }
+}
+
+@keyframes alert_hide {
+  from {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+.orch-alert-default {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.orch-alert-success {
+  background-color: $success;
+  border-color: $success;
+}
+
+.orch-alert-warning {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.orch-alert-danger {
+  background-color: $danger;
+  border-color: $danger;
+}

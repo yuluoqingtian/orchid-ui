@@ -39,7 +39,12 @@ function App() {
       <br />
       <br />
       <h2>Alert</h2>
-      <Alert type={AlertType.danger} />
+      <Alert
+        type={AlertType.danger}
+        message="我是警告的标题"
+        closable
+        description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
+      />
     </div>
   )
 }
