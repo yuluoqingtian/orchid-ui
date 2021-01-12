@@ -1,4 +1,4 @@
-import React, {useState } from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
 
 //alert 的类型
@@ -28,7 +28,14 @@ const Alert: React.FC<AlertProps> = (props) => {
   // 设置Alert组件是否渲染，播放完动画，后让Alert消失
   const [display, setDisplay] = useState(true)
 
-  const { className, type, message, description, closable } = props
+  const {
+    className,
+    type,
+    message,
+    description,
+    closable,
+    ...restProprs
+  } = props
   const classes = classnames("orch-alert", className, {
     [`orch-alert-${type}`]: type,
     "orch-alert-hide": hide
@@ -38,7 +45,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     return null
   }
   return (
-    <div className={classes}>
+    <div className={classes} {...restProprs}>
       <div className="orch-alert-content">
         <div className="orch-alert-message">{message}</div>
         {description && (
