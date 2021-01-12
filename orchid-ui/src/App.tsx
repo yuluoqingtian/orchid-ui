@@ -45,6 +45,21 @@ function App() {
         closable
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
+      {renderBlank(4)}
+      <Alert
+        type={AlertType.success}
+        message="我是成功的标题"
+        description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
+      />
+      {renderBlank(4)}
+      <Alert type={AlertType.default} message="我是成功的标题" closable />
+      {renderBlank(4)}
+      <Alert
+        type={AlertType.warning}
+        message="我是警告的标题"
+        closable
+        description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
+      />
     </div>
   )
 }

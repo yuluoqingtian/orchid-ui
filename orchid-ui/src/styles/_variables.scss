@@ -6,7 +6,7 @@
  */
 
 // 中性色
-$white:    #ffffff !default;
+$white: #ffffff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -16,19 +16,19 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000000 !default;
+$black: #000000 !default;
 
 // 基础色
-$blue:    #0d6efd !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #d63384 !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #fadb14 !default;
-$green:   #52c41a !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ebb10d !default;
+$green: #20a162 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
 
 // 系统色板
 $primary: $blue !default;
@@ -217,3 +217,23 @@ $btn-border-radius-sm: $border-radius-sm !default;
 
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+// Alert 提示框
+$alert-padding: 1.2rem 1.5rem !default;
+$alert-margin: 0 !default;
+$alert-border: 1px solid !default;
+$alert-font-color: $gray-100 !default;
+$alert-message-spacing: 0.05rem !default;
+$alert-message-font-size: 1.15rem !default;
+$alert-hide-animation : alert_hide 0.15s;
+
+@keyframes alert_hide {
+  from {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}

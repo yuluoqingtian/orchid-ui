@@ -1,20 +1,19 @@
 .orch-alert {
-  padding: 18px 25px;
-  margin: 0;
-  border: 1px solid;
+  padding: $alert-padding;
+  margin: $alert-margin;
+  border: $alert-border;
   display: flex;
   border-radius: $border-radius;
-  color: #fff;
+  color: $alert-font-color;
   line-height: $line-height-sm;
   height: auto;
-  transition: height 2s;
 
   .orch-alert-content {
     width: 100%;
     .orch-alert-message {
-      font-weight: bold;
-      letter-spacing: 0.05rem;
-      font-size: 1.15rem;
+      font-weight: $font-weight-bold;
+      letter-spacing: $alert-message-spacing;
+      font-size: $alert-message-font-size;
     }
     .orch-alert-description {
       margin-top: 10px;
@@ -22,9 +21,9 @@
   }
 
   > i {
-    width: 1.25rem;
-    height: 1.25rem;
-    font-size: 1.25rem;
+    width: $h5-font-size;
+    height: $h5-font-size;
+    font-size: $h5-font-size;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,37 +33,22 @@
   &-hide {
     transform: scaleY(0);
     color: transparent;
-    animation: alert_hide 0.15s;
-  }
-}
-
-@keyframes alert_hide {
-  from {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  to {
-    opacity: 0;
-    transform: scaleY(0);
+    animation: $alert-hide-animation;
   }
 }
 
 .orch-alert-default {
-  background-color: $primary;
-  border-color: $primary;
+  @include alert-type($primary);
 }
 
 .orch-alert-success {
-  background-color: $success;
-  border-color: $success;
+  @include alert-type($success);
 }
 
 .orch-alert-warning {
-  background-color: $warning;
-  border-color: $warning;
+  @include alert-type($orange);
 }
 
 .orch-alert-danger {
-  background-color: $danger;
-  border-color: $danger;
+  @include alert-type($danger); 
 }

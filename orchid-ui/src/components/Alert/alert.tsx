@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useState } from "react"
 import classnames from "classnames"
 
 //alert 的类型
@@ -10,13 +10,17 @@ export enum AlertType {
 }
 
 /*规定一下props的样子*/
-interface AlertProps {
+interface BaseAlertProps {
   type?: AlertType
   className?: string // 用户自定义的类名
   message?: string // 警告的内容
   description?: string //辅助文字
   closable?: boolean // 是否显示关闭按钮
 }
+
+export type AlertProps = Partial<
+  BaseAlertProps & React.HTMLAttributes<HTMLDivElement>
+>
 
 const Alert: React.FC<AlertProps> = (props) => {
   // 设置Alert组件是否隐藏。隐藏时播放动画
@@ -27,7 +31,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   const { className, type, message, description, closable } = props
   const classes = classnames("orch-alert", className, {
     [`orch-alert-${type}`]: type,
-    "orch-alert-hide": hide,
+    "orch-alert-hide": hide
   })
 
   if (!display) {
@@ -46,7 +50,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           className="iconfont iconx"
           onClick={() => {
             setHide(true)
-            setTimeout(() => setDisplay(false), 500)
+            setTimeout(() => setDisplay(false), 300)
           }}
         ></i>
       )}
