@@ -60,10 +60,17 @@ function App() {
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       <Title>Menu</Title>
-      <Menu>
-        <MenuItem>cool link 1</MenuItem>
-        <MenuItem>cool link 2</MenuItem>
-        <MenuItem>cool link 3</MenuItem>
+      <Menu
+        mode="vertical"
+        onSelect={(index) => {
+          alert(index)
+        }}
+      >
+        <MenuItem index={0}>cool link 1</MenuItem>
+        <MenuItem index={1} disabled>
+          cool link 2
+        </MenuItem>
+        <MenuItem index={2}>cool link 3</MenuItem>
       </Menu>
     </div>
   )

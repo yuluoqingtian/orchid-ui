@@ -225,7 +225,7 @@ $alert-border: 1px solid !default;
 $alert-font-color: $gray-100 !default;
 $alert-message-spacing: 0.05rem !default;
 $alert-message-font-size: 1.15rem !default;
-$alert-hide-animation : alert_hide 0.15s;
+$alert-hide-animation: alert_hide 0.15s;
 
 @keyframes alert_hide {
   from {
@@ -237,3 +237,22 @@ $alert-hide-animation : alert_hide 0.15s;
     transform: scaleY(0);
   }
 }
+
+// Menu 菜单
+$menu-border-width: $border-width !default;
+$menu-border-color: $border-color !default;
+$menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
+  0 1px 1px rgba($black, 0.075) !default;
+$menu-transition: color .15s ease-in-out, border-color .05s ease-in-out !default;
+
+// menu-item
+$menu-item-padding-y: 0.5rem !default;
+$menu-item-padding-x: 1rem !default;
+$menu-item-active-color: $primary !default;
+$menu-item-active-border-width: 2px !default;
+$menu-item-disabled-color: $gray-600 !default;
+
+//sub-menu
+//submenu
+$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+  0 0 6px 0 rgba(0, 0, 0, 0.04);
