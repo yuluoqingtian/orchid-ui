@@ -62,9 +62,6 @@ function App() {
       <Title>Menu</Title>
       <Menu
         mode="vertical"
-        onSelect={(index) => {
-          alert(index)
-        }}
       >
         <MenuItem index={0}>cool link 1</MenuItem>
         <MenuItem index={1} disabled>
@@ -72,6 +69,11 @@ function App() {
         </MenuItem>
         <MenuItem index={2}>cool link 3</MenuItem>
       </Menu>
+      <ul>
+        <li>你发放啊</li>
+        <li>你法大师傅</li>
+        <li>你阿凡达啊</li>
+      </ul>
     </div>
   )
 }

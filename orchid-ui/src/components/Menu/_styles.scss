@@ -11,6 +11,7 @@
     padding: $menu-item-padding-y $menu-item-padding-x;
     cursor: pointer;
     transition: $menu-transition;
+    -webkit-user-select: none;
     &:hover,
     &:focus {
       text-decoration: none;
