@@ -1,17 +1,9 @@
 import React, { useState } from "react"
 import classnames from "classnames"
 
-//alert 的类型
-export enum AlertType {
-  success = "success",
-  default = "default",
-  danger = "danger",
-  warning = "warning"
-}
-
 /*规定一下props的样子*/
 interface BaseAlertProps {
-  type?: AlertType
+  type?: 'success'|'default'|'danger'|'warning'
   className?: string // 用户自定义的类名
   message?: string // 警告的内容
   description?: string //辅助文字
@@ -67,7 +59,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
 // 默认的参数
 Alert.defaultProps = {
-  type: AlertType.default,
+  type: 'default',
   closable: false
 }
 

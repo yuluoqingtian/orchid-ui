@@ -1,68 +1,70 @@
 import React from "react"
-import Button, { ButtonSize, ButtonType } from "./components/Button/button"
-import Alert, { AlertType } from "./components/Alert/alert"
+import Button from "./components/Button/button"
+import Alert from "./components/Alert/alert"
+import Title from "./components/Title/title"
+import Menu from "./components/Menu/menu"
 import { renderBlank } from "./utils"
+
+const { MenuItem } = Menu
+
 function App() {
   const style = {
     padding: "1.5%"
   }
   return (
     <div className="App" style={{ ...style }}>
-      <h2>Button</h2>
+      <Title>Button</Title>
       <Button>hello</Button>
       {renderBlank(4)}
       <Button disabled>Disabled Button</Button>
       {renderBlank(4)}
-      <Button disabled btnType={ButtonType.Danger} size={ButtonSize.Large}>
+      <Button disabled btnType="danger" size="lg">
         Large Danger Disabled Button
       </Button>
       {renderBlank(4)}
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
+      <Button btnType="primary" size="lg">
         Large Primary
       </Button>
       {renderBlank(4)}
-      <Button size={ButtonSize.Small} btnType={ButtonType.Danger}>
+      <Button size="sm" btnType="danger">
         Small Danger
       </Button>
       {renderBlank(4)}
-      <Button
-        btnType={ButtonType.Link}
-        target="_blnak"
-        href="https://baidu.com"
-      >
+      <Button btnType="link" target="_blnak" href="https://baidu.com">
         Baidu Link
       </Button>
       {renderBlank(4)}
-      <Button btnType={ButtonType.Link} disabled>
+      <Button btnType="link" disabled>
         Disabled Link
       </Button>
-      <br />
-      <br />
-      <h2>Alert</h2>
+      <Title>Alert</Title>
       <Alert
-        type={AlertType.danger}
+        type="danger"
         message="我是警告的标题"
         closable
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       {renderBlank(4)}
       <Alert
-        type={AlertType.success}
+        type="success"
         message="我是成功的标题"
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       {renderBlank(4)}
-      <Alert type={AlertType.default} message="我是成功的标题" closable />
+      <Alert type="default" message="我是成功的标题" closable />
       {renderBlank(4)}
       <Alert
-        type={AlertType.warning}
+        type="warning"
         message="我是警告的标题"
         closable
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
-      <br />
-      <br />
-      <h2>Menu</h2>
+      <Title>Menu</Title>
+      <Menu>
+        <MenuItem>cool link 1</MenuItem>
+        <MenuItem>cool link 2</MenuItem>
+        <MenuItem>cool link 3</MenuItem>
+      </Menu>
     </div>
   )
 }

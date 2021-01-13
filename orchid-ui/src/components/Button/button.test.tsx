@@ -1,13 +1,13 @@
 import { render, fireEvent } from "@testing-library/react"
-import Button, { ButtonType, ButtonProps, ButtonSize } from "./button"
+import Button, { ButtonProps } from "./button"
 
 const defaultProps: ButtonProps = {
   onClick: jest.fn()
 }
 
 const testPorps: ButtonProps = {
-  btnType: ButtonType.Primary,
-  size: ButtonSize.Large,
+  btnType: 'primary',
+  size: 'lg',
   className: "klass"
 }
 
@@ -38,7 +38,7 @@ describe("测试BUTTON 组件", () => {
   })
 
   it("测试 <a/> 类型 button 是否渲染正确", () => {
-    const wrapper = render(<Button btnType={ButtonType.Link}>Link</Button>)
+    const wrapper = render(<Button btnType='link'>Link</Button>)
     const ele = wrapper.queryByText("Link") as HTMLElement
     expect(ele.tagName).toEqual("A")
     expect(ele).toHaveClass("btn-link")
@@ -48,7 +48,7 @@ describe("测试BUTTON 组件", () => {
     const wrapper = render(<Button {...disabledProps}>test</Button>)
     const ele = wrapper.queryByText("test") as HTMLElement
     expect(ele).toBeTruthy()
-    expect(ele).toBeDisabled
+    expect(ele).toBeDisabled()
     fireEvent.click(ele)
     expect(disabledProps.onClick).not.toBeCalled()
   })

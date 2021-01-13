@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react"
-import Alert, { AlertProps, AlertType } from "./alert"
+import Alert, { AlertProps } from "./alert"
 
 describe("测试Alert组件", () => {
   it("测试default Alert是否渲染正确", () => {
@@ -25,7 +25,7 @@ describe("测试Alert组件", () => {
     const defaultPorps: AlertProps = {
       message: "message",
       title: "test-alert",
-      type: AlertType.success
+      type: 'success'
     }
     const wrapper = render(<Alert {...defaultPorps} />)
     const ele = wrapper.queryByTitle("test-alert")
