@@ -3,6 +3,7 @@ import Button from "./components/Button/button"
 import Alert from "./components/Alert/alert"
 import Title from "./components/Title/title"
 import Menu from "./components/Menu/menu"
+import SubMenu from "./components/Menu/subMenu"
 import { renderBlank } from "./utils"
 
 const { MenuItem } = Menu
@@ -60,20 +61,24 @@ function App() {
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       <Title>Menu</Title>
-      <Menu
-        mode="vertical"
-      >
-        <MenuItem index={0}>cool link 1</MenuItem>
-        <MenuItem index={1} disabled>
-          cool link 2
-        </MenuItem>
-        <MenuItem index={2}>cool link 3</MenuItem>
+      <Menu onSelect={(index)=>alert(index)}>
+        <MenuItem>cool link 1</MenuItem>
+        <MenuItem>cool link 2</MenuItem>
+        <SubMenu title="SubMenu">
+          <MenuItem>sub menu 1</MenuItem>
+          <MenuItem>sub menu 2</MenuItem>
+        </SubMenu>
+        <MenuItem>cool link 3</MenuItem>
       </Menu>
-      <ul>
-        <li>你发放啊</li>
-        <li>你法大师傅</li>
-        <li>你阿凡达啊</li>
-      </ul>
+      <Menu mode="vertical">
+        <MenuItem>cool link 1</MenuItem>
+        <MenuItem disabled>cool link 2</MenuItem>
+        <SubMenu title="SubMenu">
+          <MenuItem>sub menu 1</MenuItem>
+          <MenuItem>sub menu 2</MenuItem>
+        </SubMenu>
+        <MenuItem>cool link 3</MenuItem>
+      </Menu>
     </div>
   )
 }
