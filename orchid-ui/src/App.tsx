@@ -70,12 +70,16 @@ function App() {
         </SubMenu>
         <MenuItem>cool link 3</MenuItem>
       </Menu>
-      <Menu mode="vertical">
+      <Menu mode="vertical" defaultOpenSubMenus={['2','3']}>
         <MenuItem>cool link 1</MenuItem>
         <MenuItem disabled>cool link 2</MenuItem>
-        <SubMenu title="SubMenu">
+        <SubMenu title="SubMenu1">
           <MenuItem>sub menu 1</MenuItem>
           <MenuItem>sub menu 2</MenuItem>
+        </SubMenu>
+        <SubMenu title="SubMenu2">
+          <MenuItem>sub menu 3</MenuItem>
+          <MenuItem>sub menu 4</MenuItem>
         </SubMenu>
         <MenuItem>cool link 3</MenuItem>
       </Menu>
