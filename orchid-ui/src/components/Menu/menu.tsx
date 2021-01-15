@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react"
 import classNames from "classnames"
 import MenuItem, { MenuItemProps } from "./menuItem"
-import { SubMenuProps } from './subMenu'
+import SubMenu, { SubMenuProps } from "./subMenu"
 
 type OnSelectCallback = (selectIndex: string) => void
 type MenuMode = "vertical" | "horizontal"
@@ -12,7 +12,7 @@ export interface MenuProps {
   mode?: MenuMode
   style?: React.CSSProperties
   onSelect?: OnSelectCallback
-  defaultOpenSubMenus?: string[];
+  defaultOpenSubMenus?: string[]
 }
 
 // context接口
@@ -20,15 +20,26 @@ interface IMenuContext {
   index: string
   onSelect?: OnSelectCallback
   mode?: MenuMode
-  defaultOpenSubMenus?: string[];
+  defaultOpenSubMenus?: string[]
 }
 
 export const MenuContext = createContext<IMenuContext>({ index: "0" })
 
-type MenuType = React.FC<MenuProps> & { MenuItem: React.FC<MenuItemProps> }
+type MenuType = React.FC<MenuProps> & {
+  MenuItem: React.FC<MenuItemProps>
+  SubMenu: React.FC<SubMenuProps>
+}
 
 const Menu: MenuType = (props) => {
-  const { defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenus } = props
+  const {
+    defaultIndex,
+    className,
+    mode,
+    style,
+    onSelect,
+    children,
+    defaultOpenSubMenus
+  } = props
   const [currentActive, setActive] = useState(defaultIndex)
   const handleClick: OnSelectCallback = (index) => {
     setActive(index)
@@ -52,7 +63,9 @@ const Menu: MenuType = (props) => {
    */
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement = child as React.FunctionComponentElement<MenuItemProps | SubMenuProps>
+      const childElement = child as React.FunctionComponentElement<
+        MenuItemProps | SubMenuProps
+      >
       if (
         childElement.type.displayName === "MenuItem" ||
         childElement.type.displayName === "SubMenu"
@@ -79,5 +92,6 @@ Menu.defaultProps = {
 }
 
 Menu.MenuItem = MenuItem
+Menu.SubMenu = SubMenu
 
 export default Menu

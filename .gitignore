@@ -1,4 +1,7 @@
 */.eslintcache
 node_modules/
 
+.eslintcache
+.VSCodeCounter/
+
 orchid-ui/.eslintcache

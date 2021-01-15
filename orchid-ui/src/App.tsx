@@ -3,10 +3,9 @@ import Button from "./components/Button/button"
 import Alert from "./components/Alert/alert"
 import Title from "./components/Title/title"
 import Menu from "./components/Menu/menu"
-import SubMenu from "./components/Menu/subMenu"
 import { renderBlank } from "./utils"
 
-const { MenuItem } = Menu
+const { MenuItem, SubMenu } = Menu
 
 function App() {
   const style = {
@@ -61,20 +60,20 @@ function App() {
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       <Title>Menu</Title>
-      <Menu onSelect={(index)=>alert(index)}>
+      <Menu onSelect={(index) => alert(index)} defaultOpenSubMenus={["2"]} defaultIndex="1">
         <MenuItem>cool link 1</MenuItem>
         <MenuItem>cool link 2</MenuItem>
         <SubMenu title="SubMenu">
-          <MenuItem>sub menu 1</MenuItem>
+          <MenuItem disabled>sub menu 1</MenuItem>
           <MenuItem>sub menu 2</MenuItem>
         </SubMenu>
         <MenuItem>cool link 3</MenuItem>
       </Menu>
-      <Menu mode="vertical" defaultOpenSubMenus={['2','3']}>
+      <Menu mode="vertical" defaultOpenSubMenus={["2"]}>
         <MenuItem>cool link 1</MenuItem>
         <MenuItem disabled>cool link 2</MenuItem>
         <SubMenu title="SubMenu1">
-          <MenuItem>sub menu 1</MenuItem>
+          <MenuItem disabled>sub menu 1</MenuItem>
           <MenuItem>sub menu 2</MenuItem>
         </SubMenu>
         <SubMenu title="SubMenu2">

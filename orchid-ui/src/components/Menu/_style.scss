@@ -67,6 +67,11 @@
       cursor: pointer;
       transition: $menu-transition;
       color: $body-color;
+      &.is-disabled {
+        color: $menu-item-disabled-color;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
       &.is-active,
       &:hover {
         color: $menu-item-active-color !important;
