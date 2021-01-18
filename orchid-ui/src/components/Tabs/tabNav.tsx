@@ -1,20 +1,28 @@
-import React from "react"
+import React, { useContext } from "react";
+import { TabsContext } from "./tabs";
+import classNames from "classnames";
 interface ITabNavProps {
-  tabKey: string
-  onClick?: (key: string, event: React.MouseEvent) => void
-  disabled?: boolean
-  tab: React.ReactNode
+  tabKey: string;
+  disabled?: boolean;
+  tab: React.ReactNode;
 }
 const TabNav: React.FC<ITabNavProps> = (props) => {
-  const { onClick, tabKey } = props
+  const { tabKey, tab, disabled } = props;
+  const context = useContext(TabsContext);
+  const classes = classNames("orch-tabs-tab", {
+    "is-disabled": disabled,
+  });
   return (
     <div
-      className="orch-tabs-tab"
-      onClick={(event: React.MouseEvent) => {
-        onClick && onClick(tabKey, event)
+      key={tabKey}
+      className={classes}
+      onClick={(event) => {
+        !disabled && context.onClick && context.onClick(tabKey, event);
       }}
-    ></div>
-  )
-}
+    >
+      {tab}
+    </div>
+  );
+};
 
-export default TabNav
+export default TabNav;

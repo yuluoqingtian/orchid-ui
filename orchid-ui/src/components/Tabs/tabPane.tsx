@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import className from "classnames"
+import classNames from "classnames"
 import { TabsContext } from "./tabs"
 
 export interface ITabPaneProps {
@@ -11,7 +11,7 @@ export interface ITabPaneProps {
 const TabPane: React.FC<ITabPaneProps> = (props) => {
   const { children, tabKey } = props
   const contect = useContext(TabsContext)
-  const classes = className("orch-tabs-tabpane", {
+  const classes = classNames("orch-tabs-tabpane", {
     "is-active": tabKey === contect.currentKey
   })
   return <div className={classes}>{children}</div>

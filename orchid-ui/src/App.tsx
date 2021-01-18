@@ -1,19 +1,19 @@
-import React from "react"
-import Button from "./components/Button/button"
-import Alert from "./components/Alert/alert"
-import Title from "./components/Title/title"
-import Menu from "./components/Menu/menu"
-import { renderBlank } from "./utils"
-import Tabs from "./components/Tabs/tabs"
+import React from "react";
+import Button from "./components/Button/button";
+import Alert from "./components/Alert/alert";
+import Title from "./components/Title/title";
+import Menu from "./components/Menu/menu";
+import { renderBlank } from "./utils";
+import Tabs from "./components/Tabs/tabs";
 
-const { TabPane } = Tabs
+const { TabPane } = Tabs;
 
-const { MenuItem, SubMenu } = Menu
+const { MenuItem, SubMenu } = Menu;
 
 function App() {
   const style = {
-    padding: "1.5%"
-  }
+    padding: "1.5%",
+  };
   return (
     <div className="App" style={{ ...style }}>
       <Title>Button</Title>
@@ -90,13 +90,17 @@ function App() {
         <MenuItem>cool link 3</MenuItem>
       </Menu>
       <Title>Tabs</Title>
-      <Tabs onTabClick={(key,event)=>{
-        console.log(key);
-      }}>
+      <Tabs
+        type="card"
+        onTabClick={(key, event) => {
+          console.log(key);
+        }}
+        defaultActiveKey="3"
+      >
         <TabPane tabKey="1" tab="tab1">
           <div>我是面板1</div>
         </TabPane>
-        <TabPane tabKey="2" tab="tab2">
+        <TabPane tabKey="2" tab="tab2" disabled>
           <div>我是面板2</div>
         </TabPane>
         <TabPane
@@ -107,7 +111,7 @@ function App() {
         </TabPane>
       </Tabs>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

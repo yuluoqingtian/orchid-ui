@@ -1,6 +1,40 @@
-.orch-tabs-tabpane{
-    display: none;
-    &.is-active{
-        display: block;
+.orch-tabs {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  box-orient: vertical;
+  box-direction: normal;
+  flex-direction: column;
+
+  .orch-tabs-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 0 16px 0;
+    .orch-tabs-tab {
+      margin: 0 32px 0 0;
+      padding: 12px 0;
+      background: transparent;
+      border: 0;
+      outline: none;
+      cursor: pointer;
     }
+  }
+}
+
+.orch-tabs-tabpane {
+  display: none;
+  &.is-active {
+    display: block;
+  }
 }
