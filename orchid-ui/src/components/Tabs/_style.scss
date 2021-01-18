@@ -1,0 +1,6 @@
+.orch-tabs-tabpane{
+    display: none;
+    &.is-active{
+        display: block;
+    }
+}

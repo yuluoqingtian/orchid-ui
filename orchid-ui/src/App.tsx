@@ -4,6 +4,9 @@ import Alert from "./components/Alert/alert"
 import Title from "./components/Title/title"
 import Menu from "./components/Menu/menu"
 import { renderBlank } from "./utils"
+import Tabs from "./components/Tabs/tabs"
+
+const { TabPane } = Tabs
 
 const { MenuItem, SubMenu } = Menu
 
@@ -60,7 +63,11 @@ function App() {
         description="我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字我是辅助文字,我是辅助文字我是辅助文字我是辅助文字"
       />
       <Title>Menu</Title>
-      <Menu onSelect={(index) => alert(index)} defaultOpenSubMenus={["2"]} defaultIndex="1">
+      <Menu
+        onSelect={(index) => alert(index)}
+        defaultOpenSubMenus={["2"]}
+        defaultIndex="1"
+      >
         <MenuItem>cool link 1</MenuItem>
         <MenuItem>cool link 2</MenuItem>
         <SubMenu title="SubMenu">
@@ -82,6 +89,23 @@ function App() {
         </SubMenu>
         <MenuItem>cool link 3</MenuItem>
       </Menu>
+      <Title>Tabs</Title>
+      <Tabs onTabClick={(key,event)=>{
+        console.log(key);
+      }}>
+        <TabPane tabKey="1" tab="tab1">
+          <div>我是面板1</div>
+        </TabPane>
+        <TabPane tabKey="2" tab="tab2">
+          <div>我是面板2</div>
+        </TabPane>
+        <TabPane
+          tabKey={"3"}
+          tab={<div style={{ color: "red" }}>div tab3</div>}
+        >
+          <div>我是面板3</div>
+        </TabPane>
+      </Tabs>
     </div>
   )
 }
