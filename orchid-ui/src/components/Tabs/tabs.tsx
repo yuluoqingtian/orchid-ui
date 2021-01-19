@@ -28,7 +28,6 @@ const Tabs: TabsType = (props) => {
     children,
     defaultActiveKey,
     onTabClick,
-    onChange,
     className,
     type,
   } = props;

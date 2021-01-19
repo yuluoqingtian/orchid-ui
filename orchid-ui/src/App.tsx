@@ -1,19 +1,19 @@
-import React from "react";
-import Button from "./components/Button/button";
-import Alert from "./components/Alert/alert";
-import Title from "./components/Title/title";
-import Menu from "./components/Menu/menu";
-import { renderBlank } from "./utils";
-import Tabs from "./components/Tabs/tabs";
+import React from "react"
+import Button from "./components/Button/button"
+import Alert from "./components/Alert/alert"
+import Title from "./components/Title/title"
+import Menu from "./components/Menu/menu"
+import { renderBlank } from "./utils"
+import Tabs from "./components/Tabs/tabs"
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
-const { MenuItem, SubMenu } = Menu;
+const { MenuItem, SubMenu } = Menu
 
 function App() {
   const style = {
-    padding: "1.5%",
-  };
+    padding: "1.5%"
+  }
   return (
     <div className="App" style={{ ...style }}>
       <Title>Button</Title>
@@ -91,27 +91,55 @@ function App() {
       </Menu>
       <Title>Tabs</Title>
       <Tabs
-        type="card"
         onTabClick={(key, event) => {
-          console.log(key);
+          console.log(key)
         }}
-        defaultActiveKey="3"
       >
-        <TabPane tabKey="1" tab="tab1">
+        <TabPane tabKey="1" tab="选项卡1">
           <div>我是面板1</div>
         </TabPane>
-        <TabPane tabKey="2" tab="tab2" disabled>
+        <TabPane tabKey="2" tab="选项卡1">
           <div>我是面板2</div>
         </TabPane>
         <TabPane
           tabKey={"3"}
-          tab={<div style={{ color: "red" }}>div tab3</div>}
+          tab={
+            <div>
+              <i className="iconfont iconinfo"></i>&nbsp;用户管理
+            </div>
+          }
         >
           <div>我是面板3</div>
         </TabPane>
       </Tabs>
+      <Tabs
+        type="card"
+        onTabClick={(key, event) => {
+          console.log(key)
+        }}
+      >
+        <TabPane tabKey="1" tab="选项卡1">
+          <div>我是面板1</div>
+        </TabPane>
+        <TabPane tabKey="2" tab="选项卡1">
+          <div>我是面板2</div>
+        </TabPane>
+        <TabPane
+          tabKey={"3"}
+          tab={
+            <div>
+              用户管理
+            </div>
+          }
+        >
+          <div>我是面板3</div>
+        </TabPane>
+        <TabPane tabKey={"4"} tab="选项卡4" disabled>
+          <div>我是面板3</div>
+        </TabPane>
+      </Tabs>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

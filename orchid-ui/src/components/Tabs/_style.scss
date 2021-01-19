@@ -2,10 +2,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
+  color: $tabs-font-color;
   font-variant: tabular-nums;
-  line-height: 1.5715;
+  line-height: $line-height-base;
   list-style: none;
   font-feature-settings: "tnum";
   display: -webkit-box;
@@ -21,13 +20,45 @@
     align-items: center;
     position: relative;
     margin: 0 0 16px 0;
+    border-bottom: $tabs-nav-border-bottom;
     .orch-tabs-tab {
-      margin: 0 32px 0 0;
-      padding: 12px 0;
+      margin: 0 32px -1px 0;
+      padding: $tab-padding-y $tab-padding-x;
       background: transparent;
       border: 0;
       outline: none;
       cursor: pointer;
+      border-bottom: $tab-border-bottom;
+      transition: $tab-transition;
+      &.is-disabled {
+        color: $tab-disabled-font-color;
+        //pointer-events: none;
+        cursor: not-allowed;
+        &:hover {
+          color: $tab-disabled-font-color;
+        }
+      }
+      &:hover {
+        color: $tab-active-color;
+      }
+      &.is-active {
+        color: $tab-active-color;
+        font-weight: $tab-active-font-weight;
+        border-bottom-color: $tab-active-color;
+      }
+    }
+  }
+}
+
+.orch-tabs.orch-tabs-card {
+  .orch-tabs-tab {
+    padding: $tab-padding-y $tab-crad-padding-x;
+    margin-right: 0;
+    transition: none;
+    &.is-active {
+      border: $tab-card-active-border;
+      border-bottom: $tab-card-active-border-bottom;
+      border-radius: $tab-card-active-border-radius;
     }
   }
 }

@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng 
  * @Date: 2020-12-17 10:41:40 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2020-12-21 14:52:07
+ * @Last Modified time: 2021-01-19 15:06:33
  */
 
 // 中性色
@@ -243,7 +243,7 @@ $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;
 $menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
   0 1px 1px rgba($black, 0.075) !default;
-$menu-transition: color .15s ease-in-out, border-color .05s ease-in-out !default;
+$menu-transition: color 0.15s ease-in-out, border-color 0.05s ease-in-out !default;
 
 // menu-item
 $menu-item-padding-y: 0.5rem !default;
@@ -256,3 +256,18 @@ $menu-item-disabled-color: $gray-600 !default;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
   0 0 6px 0 rgba(0, 0, 0, 0.04);
+
+// tabs
+$tabs-font-color: lighten($black, 15%) !default;
+$tabs-nav-border-bottom: $border-width solid $border-color !default;
+$tab-padding-x: 0 !default;
+$tab-padding-y: 0.75rem !default;
+$tab-border-bottom: 2px solid transparent !default;
+$tab-transition: color 0.15s ease-in-out, border-color 0.05s ease-in-out !default;
+$tab-disabled-font-color: $gray-600 !default;
+$tab-active-color: $primary !default;
+$tab-active-font-weight: 500 !default;
+$tab-crad-padding-x: 1.25rem !default;
+$tab-card-active-border: $border-width solid $border-color;
+$tab-card-active-border-bottom: 2px solid $white;
+$tab-card-active-border-radius: 0.3rem 0.3rem 0 0;
