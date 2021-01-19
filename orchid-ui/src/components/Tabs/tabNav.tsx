@@ -5,6 +5,7 @@ interface ITabNavProps {
   tabKey: string
   disabled?: boolean
   tab: React.ReactNode
+  key: string
 }
 const TabNav: React.FC<ITabNavProps> = (props) => {
   const { tabKey, tab, disabled } = props
@@ -15,7 +16,6 @@ const TabNav: React.FC<ITabNavProps> = (props) => {
   })
   return (
     <div
-      key={tabKey}
       className={classes}
       onClick={(event) => {
         !disabled && context.onClick && context.onClick(tabKey, event)
