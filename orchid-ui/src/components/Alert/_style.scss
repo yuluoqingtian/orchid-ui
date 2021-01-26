@@ -20,20 +20,15 @@
     }
   }
 
-  > i {
-    width: $h5-font-size;
-    height: $h5-font-size;
-    font-size: $h5-font-size;
+  .icon-close {
+    width: $alert-message-font-size;
+    height: $alert-message-font-size;
+    font-size: $alert-message-font-size;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
-  // 隐藏
-  &-hide {
-    transform: scaleY(0);
-    color: transparent;
-    animation: $alert-hide-animation;
+    margin-top: 0.18rem;
   }
 }
 
@@ -50,5 +45,5 @@
 }
 
 .orch-alert-danger {
-  @include alert-type($danger); 
+  @include alert-type($danger);
 }

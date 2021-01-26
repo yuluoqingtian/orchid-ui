@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import classnames from "classnames"
+import Transition from "../Transition/tansition"
+import Icon from "../Icon/icon"
 
 /*规定一下props的样子*/
 interface BaseAlertProps {
-  type?: 'success'|'default'|'danger'|'warning'
+  type?: "success" | "default" | "danger" | "warning"
   className?: string // 用户自定义的类名
   message?: string // 警告的内容
   description?: string //辅助文字
@@ -15,11 +17,6 @@ export type AlertProps = Partial<
 >
 
 const Alert: React.FC<AlertProps> = (props) => {
-  // 设置Alert组件是否隐藏。隐藏时播放动画
-  const [hide, setHide] = useState(false)
-  // 设置Alert组件是否渲染，播放完动画，后让Alert消失
-  const [display, setDisplay] = useState(true)
-
   const {
     className,
     type,
@@ -28,38 +25,39 @@ const Alert: React.FC<AlertProps> = (props) => {
     closable,
     ...restProprs
   } = props
+
+  const [show, setShow] = useState(true)
+
   const classes = classnames("orch-alert", className, {
-    [`orch-alert-${type}`]: type,
-    "orch-alert-hide": hide
+    [`orch-alert-${type}`]: type
   })
 
-  if (!display) {
-    return null
-  }
   return (
-    <div className={classes} {...restProprs}>
-      <div className="orch-alert-content">
-        <div className="orch-alert-message">{message}</div>
-        {description && (
-          <div className="orch-alert-description">{description}</div>
+    <Transition in={show} timeout={300} animation="zoom-in-top">
+      <div className={classes} {...restProprs}>
+        <div className="orch-alert-content">
+          <div className="orch-alert-message">{message}</div>
+          {description && (
+            <div className="orch-alert-description">{description}</div>
+          )}
+        </div>
+        {closable && (
+          <Icon
+            icon="times"
+            className="icon-close"
+            onClick={() => {
+              setShow(false)
+            }}
+          />
         )}
       </div>
-      {closable && (
-        <i
-          className="iconfont iconx"
-          onClick={() => {
-            setHide(true)
-            setTimeout(() => setDisplay(false), 300)
-          }}
-        ></i>
-      )}
-    </div>
+    </Transition>
   )
 }
 
 // 默认的参数
 Alert.defaultProps = {
-  type: 'default',
+  type: "default",
   closable: false
 }
 

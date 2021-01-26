@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react"
 import classNames from "classnames"
 import { MenuItemProps } from "./menuItem"
 import { MenuContext } from "./menu"
+import Icon from "../Icon/icon"
+import Transition from '../Transition/tansition'
 
 export interface SubMenuProps {
   index?: string
@@ -30,7 +32,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   )
   // class
   const classes = classNames("menu-item submenu-item", className, {
-    "is-opened": menuOpen
+    "is-opened": menuOpen,
+    "is-active": context.index.split("-")[0] === index,
+    "is-vertical": context.mode === "vertical"
   })
 
   //渲染子节点
@@ -48,7 +52,15 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         )
       }
     })
-    return <ul className={subNemuClasses}>{childrenComponent}</ul>
+    return (
+      <Transition
+        in={menuOpen}
+        timeout={200}
+        animation="zoom-in-top"
+      >
+        <ul className={subNemuClasses}>{childrenComponent}</ul>
+      </Transition>
+    )
   }
 
   // 鼠标事件
@@ -87,6 +99,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
+        <Icon icon="chevron-down" className="arrow-icon" size="sm" />
       </div>
       {renderChildren()}
     </li>

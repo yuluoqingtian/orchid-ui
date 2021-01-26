@@ -6,20 +6,13 @@
   list-style: none;
   border-bottom: $menu-border-width solid $menu-border-color;
   box-shadow: $menu-box-shadow;
-
   > .menu-item {
     padding: $menu-item-padding-y $menu-item-padding-x;
     cursor: pointer;
     transition: $menu-transition;
-    -webkit-user-select: none;
     &:hover,
     &:focus {
       text-decoration: none;
-    }
-    &.is-disabled {
-      color: $menu-item-disabled-color;
-      pointer-events: none;
-      cursor: not-allowed;
     }
     &.is-active,
     &:hover {
@@ -27,8 +20,14 @@
       border-bottom: $menu-item-active-border-width solid
         $menu-item-active-color;
     }
+    &.is-disabled {
+      color: $menu-item-disabled-color;
+      cursor: not-allowed;
+      &:hover {
+        color: $menu-item-disabled-color;
+      }
+    }
   }
-
   .submenu-item {
     position: relative;
     .submenu-title {
@@ -55,37 +54,36 @@
       transform: rotate(180deg) !important;
     }
   }
-
   .orch-submenu {
-    display: none;
+    //display: none;
     list-style: none;
     padding-left: 0;
     white-space: nowrap;
-    transition: $menu-transition;
+    //transition: $menu-transition;
     .menu-item {
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
       transition: $menu-transition;
       color: $body-color;
-      &.is-disabled {
-        color: $menu-item-disabled-color;
-        pointer-events: none;
-        cursor: not-allowed;
-      }
       &.is-active,
       &:hover {
-        color: $menu-item-active-color !important;
+        color: $menu-item-active-color;
+      }
+      &.is-disabled {
+        color: $menu-item-disabled-color;
+        cursor: not-allowed;
+        &:hover {
+          color: $menu-item-disabled-color;
+        }
       }
     }
   }
-
   .orch-submenu.menu-opened {
-    display: block;
+    //display: block;
   }
 }
-
 .menu-horizontal {
-  >.menu-item {
+  > .menu-item {
     border-bottom: $menu-item-active-border-width solid transparent;
   }
   .orch-submenu {
@@ -98,17 +96,16 @@
     box-shadow: $submenu-box-shadow;
   }
 }
-
 .menu-vertical {
   flex-direction: column;
-  border-bottom: none;
+  border-bottom: 0px;
+  margin: 10px 20px;
   border-right: $menu-border-width solid $menu-border-color;
-  box-shadow: none;
-  >.menu-item {
+  > .menu-item {
     border-left: $menu-item-active-border-width solid transparent;
     &.is-active,
     &:hover {
-      border-bottom: none;
+      border-bottom: 0px;
       border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }

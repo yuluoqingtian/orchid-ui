@@ -1,4 +1,3 @@
-@import "../assets/iconfont/iconfont.css";
 
 //config
 @import "variables";
@@ -9,17 +8,48 @@
 // mixins
 @import "mixins";
 
+// @animation
+@import "animation";
+
 //button
-@import "../components/Button/styles";
+@import "../components/Button/style";
 
 //alert
-@import "../components/Alert/styles";
+@import "../components/Alert/style";
 
 //title
 @import "../components/Title/style";
 
 //Menu
- @import"../components/Menu/style";
+@import "../components/Menu/style";
 
- //tabs
- @import"../components/Tabs/style"
+//tabs
+@import "../components/Tabs/style";
+
+// icon
+@import "../components/Icon/style";
+
+.zoom-in-top-enter {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  
+  .zoom-in-top-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms opacity 300ms
+      cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: center top;
+  }
+  
+  .zoom-in-top-exit {
+    transform: scaleY(1);
+  }
+  
+  .zoom-in-top-exit-active {
+    opacity: 0;
+    transform: scaleY(0);
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms opacity 300ms
+      cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: center top;
+  }

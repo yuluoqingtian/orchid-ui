@@ -41,3 +41,39 @@
   background-color: $background-color;
   border-color: $border-color;
 }
+
+$zoom-top-last-time: 300ms;
+$zoom-top-delay-time: 50ms;
+
+@mixin zoom-animation(
+  $direction: "top",
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top
+) {
+  .zoom-in-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .zoom-in-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform $zoom-top-last-time cubic-bezier(0.23, 1, 0.32, 1)
+        $zoom-top-delay-time,
+      opacity $zoom-top-last-time cubic-bezier(0.23, 1, 0.32, 1)
+        $zoom-top-delay-time;
+    transform-origin: $origin;
+  }
+  .zoom-in-#{$direction}-exit {
+    opacity: 1;
+  }
+  .zoom-in-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform $zoom-top-last-time cubic-bezier(0.23, 1, 0.32, 1)
+        $zoom-top-delay-time,
+      opacity $zoom-top-last-time cubic-bezier(0.23, 1, 0.32, 1)
+        $zoom-top-delay-time;
+    transform-origin: $origin;
+  }
+}

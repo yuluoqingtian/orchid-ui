@@ -1,10 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import Button from "./components/Button/button"
 import Alert from "./components/Alert/alert"
 import Title from "./components/Title/title"
 import Menu from "./components/Menu/menu"
 import { renderBlank } from "./utils"
 import Tabs from "./components/Tabs/tabs"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { fas } from "@fortawesome/free-solid-svg-icons"
+import Icon from "./components/Icon/icon"
+import Transition from "./components/Transition/tansition"
+library.add(fas)
 
 const { TabPane } = Tabs
 
@@ -14,6 +19,7 @@ function App() {
   const style = {
     padding: "1.5%"
   }
+  const [show, toogleShwo] = useState(false)
   return (
     <div className="App" style={{ ...style }}>
       <Title>Button</Title>
@@ -124,20 +130,35 @@ function App() {
         <TabPane tabKey="2" tab="选项卡1">
           <div>我是面板2</div>
         </TabPane>
-        <TabPane
-          tabKey={"3"}
-          tab={
-            <div>
-              用户管理
-            </div>
-          }
-        >
+        <TabPane tabKey={"3"} tab={<div>用户管理</div>}>
           <div>我是面板3</div>
         </TabPane>
         <TabPane tabKey={"4"} tab="选项卡4" disabled>
           <div>我是面板3</div>
         </TabPane>
       </Tabs>
+      <Title>Transition</Title>
+      <div>
+        <Button
+          onClick={() => {
+            toogleShwo(!show)
+          }}
+        >
+          toogle
+        </Button>
+        <Transition in={show} timeout={300} animation="zoom-in-left">
+          <div>
+            <p>fjdasfpaoqwjfqjfeqwfqfew</p>
+            <p>fjdasfpaoqwjfqjfeqwfqfew</p>
+            <p>fjdasfpaoqwjfqjfeqwfqfew</p>
+            <p>fjdasfpaoqwjfqjfeqwfqfew</p>
+            <p>fjdasfpaoqwjfqjfeqwfqfew</p>
+          </div>
+        </Transition>
+        <Transition in={show} timeout={300} animation="zoom-in-left" wrapper>
+          <Button>123</Button>
+        </Transition>
+      </div>
     </div>
   )
 }

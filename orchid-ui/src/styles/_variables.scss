@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng 
  * @Date: 2020-12-17 10:41:40 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2021-01-19 15:06:33
+ * @Last Modified time: 2021-01-26 15:06:29
  */
 
 // 中性色
@@ -39,6 +39,18 @@ $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
+
+// 主题和颜色对应的map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
 
 // 字体家族
 // 无衬线字体
@@ -226,17 +238,6 @@ $alert-font-color: $gray-100 !default;
 $alert-message-spacing: 0.05rem !default;
 $alert-message-font-size: 1.15rem !default;
 $alert-hide-animation: alert_hide 0.15s;
-
-@keyframes alert_hide {
-  from {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-  to {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
 
 // Menu 菜单
 $menu-border-width: $border-width !default;
